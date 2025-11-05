@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Serve character data
 app.get("/characters", (req, res) => {
-  const characters = require("./character.json");
+  const characters = require("./game_data.json");
   res.json(characters);
 });
 

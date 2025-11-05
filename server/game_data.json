@@ -1,4 +1,5 @@
 {
+    "waitingTime": 15,
     "characters": [
         { "id": 0, "name": "Warrior", "icon": "⚔️", "HP": 100, "attack": 15, "defense": 10, "speed": 5 },
         { "id": 1, "name": "Ninja", "icon": "🥷", "HP": 80, "attack": 20, "defense": 5, "speed": 10 },

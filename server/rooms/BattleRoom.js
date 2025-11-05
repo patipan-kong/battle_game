@@ -1,9 +1,9 @@
 const { Room } = require("colyseus");
 const { BattleState, Player } = require("../schema/BattleState");
-const charactersData = require("../character.json");
+const gameData = require("../game_data.json");
 
 const GUARD_WINDOW_START = 500; // 0.5 seconds
-const JOIN_TIMEOUT = 60000; // 60 seconds
+const JOIN_TIMEOUT = gameData.waitingTime * 1000; // Convert seconds to milliseconds
 const AI_REACTION_TIME = 300; // AI reacts within 300ms
 
 class BattleRoom extends Room {
@@ -22,7 +22,7 @@ class BattleRoom extends Room {
         player.characterId = message.characterId;
         
         // Load character stats
-        const charData = charactersData.characters.find(c => c.id === message.characterId);
+        const charData = gameData.characters.find(c => c.id === message.characterId);
         if (charData) {
           player.hp = charData.HP;
           player.maxHp = charData.HP;
@@ -55,7 +55,7 @@ class BattleRoom extends Room {
     // If this is the first player, start countdown timer
     if (this.state.players.size === 1 && !this.state.countdownStarted) {
       this.state.countdownStarted = true;
-      this.state.message = "Waiting for opponent... (60s)";
+      this.state.message = `Waiting for opponent... (${gameData.waitingTime}s)`;
       
       const startTime = Date.now();
       const countdownInterval = this.clock.setInterval(() => {
@@ -124,7 +124,7 @@ class BattleRoom extends Room {
     const aiPlayer = new Player(aiSessionId, aiCharacterId);
     
     // Load AI character stats
-    const charData = charactersData.characters.find(c => c.id === aiCharacterId);
+    const charData = gameData.characters.find(c => c.id === aiCharacterId);
     if (charData) {
       aiPlayer.hp = charData.HP;
       aiPlayer.maxHp = charData.HP;
