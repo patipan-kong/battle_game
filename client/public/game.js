@@ -149,6 +149,9 @@ async function selectCharacter(characterId) {
         showScreen('battleScreen');
         updateStatusMessage('Waiting for opponent...');
         
+        // Disable action buttons until game starts
+        disableActionButtons();
+        
     } catch (e) {
         console.error('Failed to join room:', e);
         alert('Failed to connect to server. Please try again.');
@@ -356,6 +359,16 @@ function resetGame() {
     player1Action.textContent = '';
     player2Action.textContent = '';
     statusMessage.textContent = '';
+    
+    // Clear opponent character display
+    player2Character.textContent = '';
+    player2Name.textContent = 'Waiting...';
+    player2HP.style.width = '100%';
+    player2HPText.textContent = '0';
+    player2MaxHP.textContent = '0';
+    player2Attack.textContent = '0';
+    player2Defense.textContent = '0';
+    player2Speed.textContent = '0';
     
     showScreen('mainMenu');
 }
