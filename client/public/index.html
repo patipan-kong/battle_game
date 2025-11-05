@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu Screen -->
+        <div id="mainMenu" class="screen active">
+            <div class="menu-container">
+                <h1 class="game-title">⚔️ BATTLE GAME ⚔️</h1>
+                <div class="menu-buttons">
+                    <button class="menu-btn" id="playBtn">Play Game</button>
+                    <button class="menu-btn" id="howToPlayBtn">How to Play</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- How to Play Screen -->
+        <div id="howToPlay" class="screen">
+            <div class="tutorial-container">
+                <h2>📖 How to Play</h2>
+                <div class="tutorial-content">
+                    <div class="tutorial-section">
+                        <h3>🎮 Game Setup</h3>
+                        <p>1. Choose your character from 8 unique fighters</p>
+                        <p>2. Wait for an opponent (up to 60 seconds)</p>
+                        <p>3. If no one joins, you'll battle an AI opponent</p>
+                    </div>
+                    
+                    <div class="tutorial-section">
+                        <h3>⚔️ Battle Mechanics</h3>
+                        <p>• Each player starts with 100 HP</p>
+                        <p>• You have two actions: <strong>Attack</strong> or <strong>Guard</strong></p>
+                        <p>• Successful attack deals 10 damage</p>
+                        <p>• Attack succeeds if opponent doesn't guard within 0.5 seconds</p>
+                        <p>• First player to reach 0 HP loses</p>
+                    </div>
+                    
+                    <div class="tutorial-section">
+                        <h3>🏆 Winning Strategy</h3>
+                        <p>• Time your attacks carefully</p>
+                        <p>• Guard when you predict an opponent's attack</p>
+                        <p>• Mix up your actions to be unpredictable</p>
+                    </div>
+                </div>
+                <button class="back-btn" id="backToMenuBtn">Back to Menu</button>
+            </div>
+        </div>
+
+        <!-- Character Selection Screen -->
+        <div id="characterSelect" class="screen">
+            <div class="select-container">
+                <h2>Choose Your Fighter</h2>
+                <div id="characterGrid" class="character-grid">
+                    <!-- Characters will be generated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Battle Screen -->
+        <div id="battleScreen" class="screen">
+            <div class="battle-container">
+                <!-- Status Message -->
+                <div id="statusMessage" class="status-message"></div>
+                
+                <!-- Battle Area -->
+                <div class="battle-area">
+                    <!-- Player 1 -->
+                    <div class="player-section player-left">
+                        <div id="player1Character" class="character-display"></div>
+                        <div class="player-info">
+                            <div class="player-name" id="player1Name">Player 1</div>
+                            <div class="player-stats">
+                                <div class="player-stat">
+                                    <div class="player-stat-label">⚔️</div>
+                                    <div class="player-stat-value" id="player1Attack">0</div>
+                                </div>
+                                <div class="player-stat">
+                                    <div class="player-stat-label">🛡️</div>
+                                    <div class="player-stat-value" id="player1Defense">0</div>
+                                </div>
+                                <div class="player-stat">
+                                    <div class="player-stat-label">⚡</div>
+                                    <div class="player-stat-value" id="player1Speed">0</div>
+                                </div>
+                            </div>
+                            <div class="hp-bar-container">
+                                <div class="hp-bar">
+                                    <div id="player1HP" class="hp-fill" style="width: 100%"></div>
+                                </div>
+                                <div class="hp-text"><span id="player1HPText">100</span> / <span id="player1MaxHP">100</span></div>
+                            </div>
+                        </div>
+                        <div id="player1Action" class="action-indicator"></div>
+                    </div>
+
+                    <!-- VS Badge -->
+                    <div class="vs-badge">VS</div>
+
+                    <!-- Player 2 -->
+                    <div class="player-section player-right">
+                        <div id="player2Character" class="character-display"></div>
+                        <div class="player-info">
+                            <div class="player-name" id="player2Name">Player 2</div>
+                            <div class="player-stats">
+                                <div class="player-stat">
+                                    <div class="player-stat-label">⚔️</div>
+                                    <div class="player-stat-value" id="player2Attack">0</div>
+                                </div>
+                                <div class="player-stat">
+                                    <div class="player-stat-label">🛡️</div>
+                                    <div class="player-stat-value" id="player2Defense">0</div>
+                                </div>
+                                <div class="player-stat">
+                                    <div class="player-stat-label">⚡</div>
+                                    <div class="player-stat-value" id="player2Speed">0</div>
+                                </div>
+                            </div>
+                            <div class="hp-bar-container">
+                                <div class="hp-bar">
+                                    <div id="player2HP" class="hp-fill" style="width: 100%"></div>
+                                </div>
+                                <div class="hp-text"><span id="player2HPText">100</span> / <span id="player2MaxHP">100</span></div>
+                            </div>
+                        </div>
+                        <div id="player2Action" class="action-indicator"></div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button id="attackBtn" class="action-btn attack-btn">
+                        ⚔️ ATTACK
+                    </button>
+                    <button id="guardBtn" class="action-btn guard-btn">
+                        🛡️ GUARD
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOver" class="screen">
+            <div class="gameover-container">
+                <h2 id="gameOverTitle">Game Over</h2>
+                <div id="gameOverMessage" class="gameover-message"></div>
+                <button class="menu-btn" id="playAgainBtn">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/colyseus.js@0.15.24/dist/colyseus.js"></script>
+
+    <script>
+        // Determine if we're in local development or production
+        const isLocalDev = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        
+        if (isLocalDev) {
+            // Local development
+            window.serverUrl = `${window.location.protocol}//${window.location.hostname}:2567`;
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const host = window.location.hostname;
+            window.wsUrl = `${protocol}//${host}:2567`;
+        } else {
+            // Production
+            window.serverUrl = `https://battle-game-serv.onrender.com`;
+            window.wsUrl = `wss://battle-game-serv.onrender.com`;
+        }
+        
+        console.log('Server URL:', window.serverUrl);
+        console.log('WebSocket URL:', window.wsUrl);
+    </script>
+
+    <script src="game.js"></script>
+</body>
+</html>

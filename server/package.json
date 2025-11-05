@@ -1,0 +1,27 @@
+{
+  "name": "battle-game-server",
+  "version": "1.0.0",
+  "description": "Multiplayer battle game server using Colyseus",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "colyseus",
+    "multiplayer",
+    "game"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@colyseus/schema": "^2.0.0",
+    "colyseus": "^0.15.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.0"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.1",
+    "nodemon": "^3.0.0"
+  }
+}

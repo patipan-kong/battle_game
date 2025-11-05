@@ -1,0 +1,12 @@
+{
+    "characters": [
+        { "id": 0, "name": "Warrior", "icon": "⚔️", "HP": 100, "attack": 15, "defense": 10, "speed": 5 },
+        { "id": 1, "name": "Ninja", "icon": "🥷", "HP": 80, "attack": 20, "defense": 5, "speed": 10 },
+        { "id": 2, "name": "Mage", "icon": "🧙", "HP": 70, "attack": 25, "defense": 5, "speed": 7 },
+        { "id": 3, "name": "Archer", "icon": "🏹", "HP": 90, "attack": 18, "defense": 8, "speed": 9 },
+        { "id": 4, "name": "Knight", "icon": "🛡️", "HP": 120, "attack": 12, "defense": 15, "speed": 4 },
+        { "id": 5, "name": "Assassin", "icon": "🗡️", "HP": 75, "attack": 22, "defense": 6, "speed": 11 },
+        { "id": 6, "name": "Samurai", "icon": "⚡", "HP": 85, "attack": 20, "defense": 7, "speed": 9 },
+        { "id": 7, "name": "Viking", "icon": "🪓", "HP": 110, "attack": 14, "defense": 12, "speed": 5 }
+    ]
+}
