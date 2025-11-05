@@ -10,9 +10,6 @@ let selectedCharacterId = null;
 const currentHostname = location.hostname;
 const url = window.wsUrl;
 const httpUrl = window.serverUrl;
-// For production, uncomment this line:
-// const url = `wss://battle-game-serv.onrender.com`;
-// const httpUrl = `https://battle-game-serv.onrender.com`;
 
 const client = new Colyseus.Client(url);
 
