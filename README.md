@@ -2,7 +2,7 @@
 A multiplayer battle game built with Colyseus and HTML5
 
 ## Play Demo 
-- https://battle-game.onrender.com
+- https://battle-game-client.onrender.com/
 
 ## 🌟 Features
 - **Character Selection**: Choose from 8 unique characters Like Street Fighter
