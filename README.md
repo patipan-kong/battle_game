@@ -13,8 +13,8 @@ A multiplayer battle game built with Colyseus and HTML5
 - **Interactive Tutorial**: Built-in "How to Play" guide
 - **Real-time Gameplay**: 
   - Real time battle with 2 action (attack or guard)
-  - Player will have full HP at begining (100HP)
-  - If player attack successfully, the other player will decrease 10HP
+  - Player will have full HP at begining
+  - If player attack successfully, the other player 's HP will decrease.
   - attack will successfully if the other player cannot guard before 0.5s or after 0.5s
   - Player with 0 HP will defeat, and other player will win
   - Attack and Block is a button on player screen
@@ -98,8 +98,8 @@ A multiplayer battle game built with Colyseus and HTML5
 
 ### Gameplay
 - Players will press attack or guard button
-- Player will have full HP at begining (100HP)
-- If player attack successfully, the other player will decrease 10HP
+- Player will have full HP at begining.
+- If player attack successfully, the other player's HP will decrease.
 - attack will successfully if the other player cannot guard before 0.5s or after 0.5s
 - Player with 0 HP will defeat, and other player will win
 
